@@ -41,6 +41,11 @@ jobs:
           LW_ACCESS_TOKEN: ${{ secrets.LW_ACCESS_TOKEN }}
           IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/ecommerce-website
           IMAGE_TAG: ${{ github.sha }}
+          SAVE_BUILD_REPORT: true
+          PRETTY_OUTPUT: true
+          RESULTS_IN_GITHUB_SUMMARY: true
+        env:
+         use_policy: true
 
       - name: Build and push
         uses: docker/build-push-action@v2
